@@ -43,7 +43,7 @@ export const correctStruct:IFilter = {
             
             width: 10,
             row: 3,
-            position: 1,
+            position: 2,
             
             selected: [],
             list: [

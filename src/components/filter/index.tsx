@@ -61,7 +61,7 @@ export const Filter:FC<{data:IFilter}> = ({data}) =>{
             <FCParameters params={data.parameters} />
             <button type="button" className="btn btn-primary mt-2">
                 Save
-                <i className="bi bi-box-arrow-down px-2"></i>
+                {/* <i className="bi bi-box-arrow-down px-2"></i> */}
             </button>
         </div>
     );

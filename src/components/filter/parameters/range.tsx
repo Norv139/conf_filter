@@ -1,11 +1,15 @@
 import { FC, useState } from "react";
 import { IRange } from "../../../type/type";
 
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
-const FCRange:FC<{data: IRange, className: string}> = ({data, className})=>{
+const FCRange:FC<{data: IRange, className?: string}> = ({data, className})=>{
 
     const {start, and} = data
+    const {width, row, position} = data
     
     const [value, setValue] = useState(start);
 
@@ -15,7 +19,9 @@ const FCRange:FC<{data: IRange, className: string}> = ({data, className})=>{
     };
 
     return(
-        <div className={`col-sm-${data.width} ${className}`}>
+        <Row>
+            { position > 0 && (<Col xs={12} md={position}></Col>)}
+            <Col xs={12} md={width} className=" border rounded">
             <label className="form-label">{data.name} {value}</label>
             <input 
                 className="form-range" 
@@ -28,7 +34,8 @@ const FCRange:FC<{data: IRange, className: string}> = ({data, className})=>{
                 step="1" 
                 onChange={handleRange} 
             />
-        </div>
+            </Col>
+        </Row>
     )
 }
 
